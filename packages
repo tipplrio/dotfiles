@@ -1,2 +1,7 @@
 coreutils
+bash-completion
+wget
 git
+git-lfs
+git-flow
+git-stree

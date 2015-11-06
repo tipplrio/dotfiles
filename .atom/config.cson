@@ -1,0 +1,35 @@
+"*":
+  "exception-reporting":
+    userId: "c00e6aa1-0c04-5f0e-af52-db624057abbd"
+  welcome:
+    showOnStartup: false
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    tabType: "soft"
+    lineHeight: 1.2
+    fontSize: 13
+    fontFamily: "D2Coding"
+    softWrapAtPreferredLineLength: true
+    showInvisibles: true
+    scrollPastEnd: true
+  core:
+    themes: [
+      "atom-dark-ui"
+      "monokai"
+    ]
+    projectHome: "/Users/jgkim/Workspace"
+    packagesWithKeymapsDisabled: [
+      "marked"
+    ]
+  "markdown-writer":
+    fileExtension: ".md"
+  "markdown-preview":
+    useGitHubStyle: true
+  marked: {}
+  "file-icons":
+    onChanges: true
+    coloured: false
+  "git-plus": {}
+  "atom-alignment": {}
+  minimap: {}

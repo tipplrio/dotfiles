@@ -11,7 +11,7 @@ This is a repository for dotfiles used in Tipplr's development environment. Ther
 * The bootstrapping script will install [Homebrew](http://brew.sh/) in `/opt/homebrew`.
 * All the dotfiles in your home directory will be symbolic-linked to those in the local repository.
 
-## How to bootstrap
+## Cloning the repository
 
 ```shell
 # Create Workspace directory and clone this repository in it.
@@ -28,7 +28,7 @@ $ cd ~/Workspace/dotfiles
 $ ./bootstrap.sh
 ```
 
-## Make your environment up-to-date
+## Making your environment up-to-date
 
 ```shell
 # Just execute the update script in the local repository.

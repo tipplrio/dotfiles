@@ -3,6 +3,7 @@
 cd $(dirname "${BASH_SOURCE}")
 
 HOMEBREW_DIR=/opt/homebrew
+APPDIR="/Applications"
 DOTFILES_REMOTE="https://github.com/tipplrio/dotfiles.git"
 DOTFILES_LOCAL=$(pwd)
 DOTFILES_HOME=$HOME
@@ -36,6 +37,7 @@ function bootstrap() {
   echo "Configuring the playbook variables."
   cat <<EOF > ${LOCALHOST_VAR}
 ---
+appdir: "${APPDIR}"
 dotfiles_remote: "${DOTFILES_REMOTE}"
 dotfiles_local: "${DOTFILES_LOCAL}"
 dotfiles_home: "${DOTFILES_HOME}"
@@ -48,7 +50,7 @@ EOF
   echo "Running the playbook."
   cd ${DOTFILES_HOME}/.ansible
   ansible-galaxy install -f -r requirements.yml
-  ansible-playbook -i hosts site.yml
+  ansible-playbook -K -i hosts site.yml
 }
 
 if [ "$1" == '-f' -o "$1" == '--force' ]; then

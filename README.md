@@ -32,5 +32,5 @@ $ ./bootstrap.sh
 ```shell
 # Just run the playbook.
 $ cd ~/.ansible
-$ ansible-playbook -i hosts site.yml
+$ ansible-playbook -K -i hosts site.yml
 ```

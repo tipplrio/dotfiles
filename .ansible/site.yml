@@ -5,3 +5,4 @@
     - jgkim.dotfiles
   tasks:
     - include: tasks/brew.yml
+    - include: tasks/cask.yml

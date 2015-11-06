@@ -31,7 +31,7 @@ $ ./bootstrap.sh
 ## Make your environment up-to-date
 
 ```shell
-# Just run the playbook.
-$ cd ~/.ansible
-$ ansible-playbook -K -i hosts site.yml
+# Just execute the update script in the local repository.
+$ cd ~/Workspace/dotfiles
+$ ./update.sh
 ```

@@ -5,6 +5,7 @@ This is a repository for dotfiles used in Tipplr's development environment. Ther
 
 ## Things you should know
 
+* **You should fork this repository to suit your personal needs.**
 * Your default workspace is `~/Workspace`.
 * This repository will be cloned in `~/Workspace/dotfiles`.
 * The bootstrapping script will install [Homebrew](http://brew.sh/) in `/opt/homebrew`.

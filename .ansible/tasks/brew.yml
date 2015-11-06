@@ -5,7 +5,7 @@
     upgrade_all: yes
 
 - name: Get list of configured Homebrew packages.
-  command: cat {{ dotfiles_local }}/packages
+  command: cat {{ dotfiles_local }}/brew_packages
   register: packages
   always_run: yes
   changed_when: False

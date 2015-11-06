@@ -1,8 +1,10 @@
 ---
 - hosts: localhost
   connection: local
+  gather_facts: no
   roles:
     - jgkim.dotfiles
   tasks:
     - include: tasks/brew.yml
     - include: tasks/cask.yml
+    - include: tasks/atom.yml

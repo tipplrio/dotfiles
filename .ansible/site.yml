@@ -3,3 +3,5 @@
   connection: local
   roles:
     - jgkim.dotfiles
+  tasks:
+    - include: tasks/brew.yml

@@ -2,7 +2,7 @@
 
 cd $(dirname "${BASH_SOURCE}")
 
-HOMEBREW_DIR=/opt/homebrew
+BREW_DIR=/opt/homebrew
 APPDIR="/Applications"
 DOTFILES_REMOTE="https://github.com/tipplrio/dotfiles.git"
 DOTFILES_LOCAL=$(pwd)
@@ -11,6 +11,12 @@ DOTFILES_IGNORE=$(<dotignore)
 LOCALHOST_VAR="${DOTFILES_LOCAL}/.ansible/host_vars/localhost"
 
 function bootstrap() {
+  # Ask for the administrator password upfront.
+  sudo -v
+
+  # Keep-alive: update existing `sudo` time stamp until the script has finished.
+  while kill -0 "$$"; do sudo -n true; sleep 60; done 2>/dev/null &
+
   echo "Updating OS X. If this requires a restart, run the script again."
   sudo softwareupdate -iva
 
@@ -18,11 +24,13 @@ function bootstrap() {
   xcode-select --install
 
   # Check for Homebrew and install if we don't have it.
-  if [[ $(which brew) != ${HOMEBREW_DIR}* ]]; then
+  if [[ $(which brew) != ${BREW_DIR}* ]]; then
     echo "Installing Homebrew."
-    mkdir -p ${HOMEBREW_DIR}
-    curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C ${HOMEBREW_DIR}
-    export PATH="${HOMEBREW_DIR}/bin:$PATH"
+    sudo mkdir -p ${BREW_DIR}
+    sudo chown -R $(id -un) ${BREW_DIR}
+    sudo chgrp -R $(id -gn) ${BREW_DIR}
+    curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C ${BREW_DIR}
+    export PATH="${BREW_DIR}/bin:$PATH"
   fi
 
   echo "Updating Homebrew and managed packages."

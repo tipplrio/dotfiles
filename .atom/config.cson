@@ -1,6 +1,4 @@
 "*":
-  "exception-reporting":
-    userId: "c00e6aa1-0c04-5f0e-af52-db624057abbd"
   welcome:
     showOnStartup: false
   editor:
@@ -17,10 +15,6 @@
     themes: [
       "atom-dark-ui"
       "monokai"
-    ]
-    projectHome: "/Users/jgkim/Workspace"
-    packagesWithKeymapsDisabled: [
-      "marked"
     ]
   "markdown-writer":
     fileExtension: ".md"

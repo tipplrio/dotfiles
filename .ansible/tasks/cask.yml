@@ -21,7 +21,7 @@
     state: present
   with_items: packages.stdout_lines
   environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ appdir }}"
+    HOMEBREW_CASK_OPTS: "--appdir={{ app_dir }}"
 
 - name: Get list of configured Homebrew Cask packages requiring sudo.
   command: cat {{ dotfiles_local }}/cask_packages_sudo
@@ -35,5 +35,5 @@
     state: present
   with_items: packages_sudo.stdout_lines
   environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ appdir }}"
+    HOMEBREW_CASK_OPTS: "--appdir={{ app_dir }}"
   sudo: yes

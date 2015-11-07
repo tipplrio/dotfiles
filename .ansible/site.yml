@@ -1,10 +1,15 @@
 ---
 - hosts: localhost
   connection: local
-  gather_facts: no
+  pre_tasks:
+    - name: Get list of configured Homebrew packages.
+      command: cat {{ dotfiles_local }}/brew_packages
+      register: brew_packages_file
+      always_run: yes
+      changed_when: False
   roles:
-    - jgkim.dotfiles
-  tasks:
-    - include: tasks/brew.yml
+    - { role: jgkim.dotfiles }
+    - { role: jgkim.brew , brew_upgrade_all: True , brew_packages: "{{ brew_packages_file.stdout_lines }}" }
+  post_tasks:
     - include: tasks/cask.yml
     - include: tasks/atom.yml

@@ -1,2 +1,5 @@
 - src: jgkim.dotfiles
   path: roles/
+
+- src: jgkim.brew
+  path: roles/

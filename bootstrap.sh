@@ -3,7 +3,7 @@
 cd $(dirname "${BASH_SOURCE}")
 
 BREW_DIR=/opt/homebrew
-APPDIR="/Applications"
+APP_DIR="/Applications"
 DOTFILES_REMOTE="https://github.com/tipplrio/dotfiles.git"
 DOTFILES_LOCAL=$(pwd)
 DOTFILES_HOME=$HOME
@@ -33,10 +33,6 @@ function bootstrap() {
     export PATH="${BREW_DIR}/bin:$PATH"
   fi
 
-  echo "Updating Homebrew and managed packages."
-  brew update
-  brew upgrade --all
-
   echo "Installing Python and Ansible via Homebrew."
   brew install python ansible
   rm -rf ${DOTFILES_HOME}/.ansible
@@ -45,7 +41,8 @@ function bootstrap() {
   echo "Configuring the playbook variables."
   cat <<EOF > ${LOCALHOST_VAR}
 ---
-appdir: "${APPDIR}"
+brew_dir: "${BREW_DIR}"
+app_dir: "${APP_DIR}"
 dotfiles_remote: "${DOTFILES_REMOTE}"
 dotfiles_local: "${DOTFILES_LOCAL}"
 dotfiles_home: "${DOTFILES_HOME}"
@@ -55,10 +52,11 @@ EOF
     echo "  - ${ignore_file}" >> ${LOCALHOST_VAR}
   done
 
-  echo "Running the playbook."
+  echo "Install the required Ansible roles."
   cd ${DOTFILES_HOME}/.ansible
   ansible-galaxy install -f -r requirements.yml
-  ansible-playbook -K -i hosts site.yml
+
+  echo 'Now you can run the playbook by executing the script: `./update.sh`'
 }
 
 if [ "$1" == '-f' -o "$1" == '--force' ]; then

@@ -6,3 +6,6 @@
 
 - src: jgkim.cask
   path: roles/
+
+- src: jgkim.atom
+  path: roles/

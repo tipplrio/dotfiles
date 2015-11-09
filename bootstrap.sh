@@ -42,6 +42,7 @@ function bootstrap() {
   cat <<EOF > ${LOCALHOST_VAR}
 ---
 brew_dir: "${BREW_DIR}"
+bin_dir: "${BREW_DIR}/bin"
 app_dir: "${APP_DIR}"
 dotfiles_remote: "${DOTFILES_REMOTE}"
 dotfiles_local: "${DOTFILES_LOCAL}"

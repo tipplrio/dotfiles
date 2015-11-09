@@ -17,4 +17,5 @@
     - { role: jgkim.brew , brew_upgrade_all: True , brew_packages: "{{ brew_packages_file.stdout_lines }}" }
     - { role: jgkim.cask , cask_packages: "{{ cask_packages_file.stdout_lines }}" }
   post_tasks:
+    - include: tasks/login_items.yml
     - include: tasks/atom.yml

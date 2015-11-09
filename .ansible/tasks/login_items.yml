@@ -1,0 +1,19 @@
+---
+- name: Find the current login items.
+  shell: osascript -e 'tell application "System Events" to get the name of every login item' | sed $'s/, /\\\n/g'
+  register: existing_login_items
+  always_run: yes
+  failed_when: False
+  changed_when: False
+
+- name: Get list of configured login items.
+  command: cat {{ dotfiles_local }}/login_items
+  register: login_items
+  always_run: yes
+  changed_when: False
+
+- name: Ensure configured login items are added.
+  command: osascript -e 'tell application "System Events" to make new login item at end with properties {path:"{{ app_dir }}/{{ item }}.app", name:"{{ item }}", hidden:false}'
+  with_items: login_items.stdout_lines
+  when: "item not in existing_login_items.stdout_lines"
+  changed_when: "item not in existing_login_items.stdout_lines"

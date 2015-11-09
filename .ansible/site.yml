@@ -7,9 +7,14 @@
       register: brew_packages_file
       always_run: yes
       changed_when: False
+    - name: Get list of configured Homebrew Cask packages.
+      command: cat {{ dotfiles_local }}/cask_packages
+      register: cask_packages_file
+      always_run: yes
+      changed_when: False
   roles:
     - { role: jgkim.dotfiles }
     - { role: jgkim.brew , brew_upgrade_all: True , brew_packages: "{{ brew_packages_file.stdout_lines }}" }
+    - { role: jgkim.cask , cask_packages: "{{ cask_packages_file.stdout_lines }}" }
   post_tasks:
-    - include: tasks/cask.yml
     - include: tasks/atom.yml

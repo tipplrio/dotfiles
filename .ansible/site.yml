@@ -1,6 +1,11 @@
 ---
 - hosts: localhost
   connection: local
+  vars:
+    brew_upgrade_all: True
+    brew_taps:
+      - homebrew/completions
+    atom_upgrade_all: True
   pre_tasks:
     - name: Get list of configured Homebrew packages.
       command: cat {{ dotfiles_local }}/brew_packages
@@ -19,8 +24,7 @@
       changed_when: False
   roles:
     - { role: jgkim.dotfiles }
-    - { role: jgkim.brew , brew_upgrade_all: True , brew_packages: "{{ brew_packages_file.stdout_lines }}" }
-    - { role: jgkim.cask , cask_packages: "{{ cask_packages_file.stdout_lines }}" }
+    - { role: jgkim.cask , brew_packages: "{{ brew_packages_file.stdout_lines }}", cask_packages: "{{ cask_packages_file.stdout_lines }}" }
     - { role: jgkim.atom , atom_packages: "{{ atom_packages_file.stdout_lines }}" }
   post_tasks:
     - include: tasks/login_items.yml

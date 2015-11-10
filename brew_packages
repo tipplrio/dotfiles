@@ -1,5 +1,6 @@
-coreutils
 bash-completion
+brew-cask-completion
+coreutils
 wget
 git
 git-lfs

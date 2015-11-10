@@ -1,7 +1,7 @@
 - src: jgkim.dotfiles
   path: roles/
 
-- src: jgkim.cask
+- src: jgkim.brew
   path: roles/
 
 - src: jgkim.atom

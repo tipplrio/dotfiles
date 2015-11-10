@@ -1,5 +1,4 @@
 ---
-
 - name: Ensure docker-related packages are installed.
   homebrew:
     name: "{{ item }}"

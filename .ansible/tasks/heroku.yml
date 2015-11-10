@@ -1,0 +1,23 @@
+---
+- name: Ensure Heroku Toolbelt is installed.
+  homebrew:
+    name: heroku-toolbelt
+    state: present
+
+- name: Find the installed Heroku Toolbelt plugins.
+  shell: heroku plugins | sed -n 's/^\(.*\)@.*$/\1/p'
+  register: existing_heroku_plugins
+  always_run: yes
+  changed_when: False
+
+- name: Get list of configured Heroku Toolbelt plugins.
+  command: cat {{ dotfiles_local }}/heroku_plugins
+  register: heroku_plugins
+  always_run: yes
+  changed_when: False
+
+- name: Ensure configured Heroku Toolbelt plugins are installed.
+  command: heroku plugins:install {{ item }}
+  with_items: heroku_plugins.stdout_lines
+  when: "item not in existing_heroku_plugins.stdout_lines"
+  changed_when: "item not in existing_heroku_plugins.stdout_lines"

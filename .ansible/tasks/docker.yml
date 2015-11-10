@@ -1,0 +1,38 @@
+---
+
+- name: Ensure docker-related packages are installed.
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - docker
+    - docker-machine
+    - docker-compose
+
+- name: Ensure docker-related applications are installed.
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - virtualbox
+    - kitematic
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ app_dir }} --binarydir={{ brew_dir }}/bin"
+
+- name: Ensure `/usr/local/bin` exists.
+  file:
+    path: /usr/local/bin
+    mode: 0755
+    state: directory
+  sudo: yes
+
+- name: Ensure symbolic links to files required by Kitematic exist.
+  file:
+    src: "{{ brew_dir }}/bin/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
+    state: link
+  with_items:
+    - docker
+    - docker-machine
+    - docker-machine-driver-virtualbox
+  sudo: yes

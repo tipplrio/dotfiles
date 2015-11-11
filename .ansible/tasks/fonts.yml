@@ -1,0 +1,11 @@
+---
+- name: Ensure `~/Library/Fonts` exists.
+  file:
+    path: ~/Library/Fonts
+    state: directory
+
+- name: Ensure D2Coding font is installed.
+  copy:
+    src: files/D2Coding/D2Coding.ttc
+    dest: ~/Library/Fonts/D2Coding.ttc
+    force: no

@@ -25,6 +25,7 @@
       register: atom_packages_file
       always_run: yes
       changed_when: False
+    - include: tasks/fonts.yml
   roles:
     - { role: jgkim.dotfiles }
     - {

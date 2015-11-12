@@ -40,5 +40,6 @@
       }
   post_tasks:
     - include: tasks/login_items.yml
+    - include: tasks/node_packages.yml
     - include: tasks/docker.yml
     - include: tasks/heroku.yml

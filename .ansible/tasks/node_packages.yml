@@ -1,0 +1,24 @@
+---
+- name: Find the outdated global node.js packages.
+  shell: npm -g outdated --parseable --depth=0 | cut -d: -f4
+  register: outdated_node_packages
+  always_run: yes
+  failed_when: False
+  changed_when: False
+
+- name: Upgrade outdated global node.js packages if any.
+  command: npm -g install "{{ item }}"
+  with_items: outdated_node_packages.stdout_lines
+
+- name: Get list of configured global node.js packages.
+  command: cat {{ dotfiles_local }}/node_packages
+  register: node_packages
+  always_run: yes
+  changed_when: False
+
+- name: Ensure configured node.js packages are installed.
+  npm:
+    name: {{ item }}
+    global: yes
+    state: present
+  with_items: node_packages.stdout_lines

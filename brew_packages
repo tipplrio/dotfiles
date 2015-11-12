@@ -2,7 +2,8 @@ bash-completion
 brew-cask-completion
 coreutils
 wget
+tree
 git
+hub
 git-lfs
 git-flow
-git-stree

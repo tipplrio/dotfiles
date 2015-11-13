@@ -27,7 +27,7 @@ function bootstrap() {
   if [[ $(which brew) != ${BREW_DIR}* ]]; then
     if [ -z $(which brew) ]; then
       echo "Uninstalling the existing Homebrew."
-      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+      sudo ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
     fi
     echo "Installing Homebrew."
     sudo mkdir -p ${BREW_DIR}

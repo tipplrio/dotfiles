@@ -31,6 +31,8 @@ $ source ./bootstrap.sh
 ## Making your environment up-to-date
 
 ```shell
+# Pull the original repository.
+$ git pull origin master
 # Just execute the update script in the local repository.
 $ cd ~/Workspace/dotfiles
 $ ./update.sh

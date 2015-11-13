@@ -22,4 +22,4 @@ script:
   # Execute the update script
   - cd ~/.ansible
   - export PATH=/opt/homebrew/bin:$PATH
-  - sudo -s ansible-playbook -i hosts site.yml
+  - sudo -s ansible-playbook -i hosts -e "node_upgrade_all=false" site.yml

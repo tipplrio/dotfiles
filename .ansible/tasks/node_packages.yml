@@ -9,6 +9,7 @@
 - name: Upgrade outdated global node.js packages if any.
   command: npm -g install "{{ item }}"
   with_items: outdated_node_packages.stdout_lines
+  when: node_upgrade_all
 
 - name: Get list of configured global node.js packages.
   command: cat {{ dotfiles_local }}/node_packages

@@ -4,6 +4,7 @@
   vars:
     brew_upgrade_all: True
     atom_upgrade_all: True
+    node_upgrade_all: True
   pre_tasks:
     - name: Get list of configured Homebrew Taps.
       command: cat {{ dotfiles_local }}/brew_taps

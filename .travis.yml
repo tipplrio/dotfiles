@@ -1,0 +1,23 @@
+---
+language: objective-c
+
+sudo: true
+
+before_install:
+  # Setup Python environment
+  - source tests/terryfy/travis_tools.sh
+  - export CC=clang
+  - export CXX=clang++
+  - get_python_environment macpython 2.7.10 venv
+
+install:
+  # Create Workspace directory
+  - mkdir -p ~/Workspace/
+  - mv . ~/Workspace/dotfiles
+
+script:
+  - cd ~/Workspace/dotfiles
+  # Execute the bootstrapping script
+  - source bootstrap.sh
+  # Execute the update script
+  - ./update.sh

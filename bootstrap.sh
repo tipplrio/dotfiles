@@ -58,6 +58,7 @@ EOF
   cd ${DOTFILES_HOME}/.ansible
   ansible-galaxy install -f -r requirements.yml
 
+  cd ${DOTFILES_LOCAL}
   echo 'Now you can run the playbook by executing the script: `./update.sh`'
 }
 

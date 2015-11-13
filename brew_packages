@@ -5,6 +5,7 @@ wget
 tree
 git
 hub
+git-extras
 git-lfs
 git-flow
 node

@@ -13,11 +13,13 @@ before_install:
 install:
   # Create Workspace directory
   - mkdir -p ~/Workspace/
-  - cp -r ../dotfiles ~/Workspace/dotfiles
+  - sudo -s cp -r ../dotfiles ~/Workspace/dotfiles
 
 script:
-  - cd ~/Workspace/dotfiles
   # Execute the bootstrapping script
-  - source bootstrap.sh --force
+  - cd ~/Workspace/dotfiles
+  - sudo -s ./bootstrap.sh --force
   # Execute the update script
-  - ./update.sh
+  - cd ~/.ansible
+  - export PATH=/opt/homebrew/bin:$PATH
+  - sudo -s ansible-playbook -i hosts site.yml

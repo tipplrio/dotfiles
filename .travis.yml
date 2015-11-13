@@ -13,11 +13,11 @@ before_install:
 install:
   # Create Workspace directory
   - mkdir -p ~/Workspace/
-  - mv . ~/Workspace/dotfiles
+  - cp -r ../dotfiles ~/Workspace/dotfiles
 
 script:
   - cd ~/Workspace/dotfiles
   # Execute the bootstrapping script
-  - source bootstrap.sh
+  - source bootstrap.sh --force
   # Execute the update script
   - ./update.sh

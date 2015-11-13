@@ -18,7 +18,7 @@ install:
 script:
   # Execute the bootstrapping script
   - cd ~/Workspace/dotfiles
-  - sudo -s ./bootstrap.sh --force
+  - sudo -s ./bootstrap.sh --force --no-update
   # Execute the update script
   - cd ~/.ansible
   - export PATH=/opt/homebrew/bin:$PATH

@@ -27,7 +27,8 @@ $ git clone git@github.com:tipplrio/dotfiles.git
 ```shell
 # Just execute the bootstrapping script in the local repository.
 $ cd ~/Workspace/dotfiles
-$ source ./bootstrap.sh
+$ ./bootstrap.sh
+$ export PATH=/opt/homebrew/bin:$PATH
 ```
 
 ## Making your environment up-to-date

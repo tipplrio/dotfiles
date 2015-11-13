@@ -25,7 +25,7 @@ $ git clone git@github.com:tipplrio/dotfiles.git
 ```shell
 # Just execute the bootstrapping script in the local repository.
 $ cd ~/Workspace/dotfiles
-$ ./bootstrap.sh
+$ source ./bootstrap.sh
 ```
 
 ## Making your environment up-to-date

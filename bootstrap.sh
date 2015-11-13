@@ -39,6 +39,7 @@ function bootstrap() {
   ln -s ${DOTFILES_LOCAL}/.ansible ${DOTFILES_HOME}
 
   echo "Configuring the playbook variables."
+  mkdir -p $(dirname ${LOCALHOST_VAR})
   cat <<EOF > ${LOCALHOST_VAR}
 ---
 brew_dir: "${BREW_DIR}"

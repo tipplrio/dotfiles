@@ -13,13 +13,13 @@ before_install:
 install:
   # Create Workspace directory
   - mkdir -p ~/Workspace/
-  - sudo -s cp -r ../dotfiles ~/Workspace/dotfiles
+  - echo "cp -r ../dotfiles ~/Workspace/dotfiles" | sudo -s bash
 
 script:
   # Execute the bootstrapping script
   - cd ~/Workspace/dotfiles
-  - sudo -s ./bootstrap.sh --force --no-update
+  - echo "./bootstrap.sh --force --no-update" | sudo -s bash
   # Execute the update script
   - cd ~/.ansible
   - export PATH=/opt/homebrew/bin:$PATH
-  - sudo -s ansible-playbook -i hosts -e "node_upgrade_all=false" site.yml
+  - echo "FORCE_UNSAFE_CONFIGURE=1 ansible-playbook -i hosts -e '{\"brew_upgrade_all\":false,\"atom_upgrade_all\":false,\"node_upgrade_all\":false}' site.yml" | sudo -s bash

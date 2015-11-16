@@ -7,7 +7,6 @@ APP_DIR="/Applications"
 DOTFILES_REMOTE="https://github.com/tipplrio/dotfiles.git"
 DOTFILES_LOCAL=$(pwd)
 DOTFILES_HOME=$HOME
-DOTFILES_IGNORE=$(<dotignore)
 LOCALHOST_VAR="${DOTFILES_LOCAL}/.ansible/host_vars/localhost"
 
 ARG1=$1
@@ -66,11 +65,7 @@ app_dir: "${APP_DIR}"
 dotfiles_remote: "${DOTFILES_REMOTE}"
 dotfiles_local: "${DOTFILES_LOCAL}"
 dotfiles_home: "${DOTFILES_HOME}"
-dotfiles_ignore:
 EOF
-  for ignore_file in $DOTFILES_IGNORE; do
-    echo "  - ${ignore_file}" >> ${LOCALHOST_VAR}
-  done
 
   echo "Install the required Ansible roles."
   cd ${DOTFILES_HOME}/.ansible

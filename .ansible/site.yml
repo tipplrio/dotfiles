@@ -6,6 +6,11 @@
     atom_upgrade_all: True
     node_upgrade_all: True
   pre_tasks:
+    - name: Get list of configured files to ignore.
+      command: cat {{ dotfiles_local }}/dotignore
+      register: dotignore_file
+      always_run: yes
+      changed_when: False
     - name: Get list of configured Homebrew Taps.
       command: cat {{ dotfiles_local }}/brew_taps
       register: brew_taps_file
@@ -28,7 +33,10 @@
       changed_when: False
     - include: tasks/fonts.yml
   roles:
-    - { role: jgkim.dotfiles }
+    - {
+        role: jgkim.dotfiles ,
+        dotfiles_ignore: "{{ dotignore_file.stdout_lines }}"
+      }
     - {
         role: jgkim.brew ,
         brew_taps: "{{ brew_taps_file.stdout_lines }}",

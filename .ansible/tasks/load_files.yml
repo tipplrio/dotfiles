@@ -1,0 +1,26 @@
+---
+- name: Get list of configured files to ignore.
+  command: cat {{ dotfiles_local }}/dotignore
+  register: dotignore_file
+  always_run: yes
+  changed_when: False
+- name: Get list of configured Homebrew Taps.
+  command: cat {{ dotfiles_local }}/brew_taps
+  register: brew_taps_file
+  always_run: yes
+  changed_when: False
+- name: Get list of configured Homebrew packages.
+  command: cat {{ dotfiles_local }}/brew_packages
+  register: brew_packages_file
+  always_run: yes
+  changed_when: False
+- name: Get list of configured Homebrew Cask packages.
+  command: cat {{ dotfiles_local }}/cask_packages
+  register: cask_packages_file
+  always_run: yes
+  changed_when: False
+- name: Get list of configured Atom packages.
+  command: cat {{ dotfiles_local }}/atom_packages
+  register: atom_packages_file
+  always_run: yes
+  changed_when: False

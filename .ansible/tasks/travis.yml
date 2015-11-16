@@ -1,0 +1,10 @@
+---
+- name: Ensure ruby is installed.
+  homebrew:
+    name: ruby
+    state: present
+
+- name: Ensure Travis CI CLI is installed.
+  gem:
+    name: travis
+    state: latest

@@ -8,3 +8,4 @@
   gem:
     name: travis
     state: latest
+    user_install: no

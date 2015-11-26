@@ -8,6 +8,7 @@
   pre_tasks:
     - include: tasks/load_files.yml
     - include: tasks/fonts.yml
+    - include: tasks/local.yml
   roles:
     - {
         role: jgkim.dotfiles ,

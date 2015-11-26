@@ -9,3 +9,12 @@
 # atom.workspace.observeTextEditors (editor) ->
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
+
+try
+  childProcess = require('child_process');
+
+  console.log("Fixing paths for Atom")
+  process.env.PATH = childProcess.execFileSync('/bin/bash', ['-l', '-c', 'echo $PATH']).toString().trim();
+
+catch exception
+  console.error("Exception during PATH fixes: #{exception}");

@@ -1,0 +1,14 @@
+---
+- name: Assure the current user name.
+  command: id -un
+  register: user_name
+  always_run: yes
+  changed_when: False
+
+- name: Ensure `/usr/local/bin` exists.
+  file:
+    path: /usr/local/bin
+    owner: "{{ user_name.stdout }}"
+    mode: 0755
+    state: directory
+  sudo: yes

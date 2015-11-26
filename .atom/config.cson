@@ -28,3 +28,7 @@
   "git-plus": {}
   "atom-alignment": {}
   minimap: {}
+  linter:
+    errorPanelHeight: 22
+  "linter-eslint":
+    globalNodePath: "/opt/homebrew"

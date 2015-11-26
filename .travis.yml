@@ -23,3 +23,7 @@ script:
   - cd ~/.ansible
   - export PATH=/opt/homebrew/bin:$PATH
   - echo "FORCE_UNSAFE_CONFIGURE=1 ansible-playbook -i hosts -e '{\"brew_upgrade_all\":false,\"atom_upgrade_all\":false,\"node_upgrade_all\":false}' site.yml" | sudo -s bash
+
+notifications:
+  slack:
+    secure: pKGt6ONkPG7iiwNopBsmQ4aQ1tzDELUUj4xN+KTBeP1i59b0RdoK/H6uCSysMbjKzI7sqhmoiFrEBu8KtCiGsq+aukughQlQdGYMtsqwvoewPoQ6JKq/tbWp8hFNnz8eluGpdbLWIQUT6SQzgcGn5lr/zZ2L6WRPrSb4qaGIu0MYFR4OjA82xxgNywvzLluD0xsFkMD8c7OZ4lzVsJzHG21LGu4rbGp7KvoTJ2/xBXyRQF1UAHvNgcjXmSMcPT+ty0oVIz6152QJpMZE9mp51ihknDGLUvv1Mh/JsqQR+rpPEzsQHM34AnehI30NapJ0MG2Dr+zVuys7FuBuHJA+Y/uLuTlpUlUQWP1BdnhS6EYIql1f9gAEL2J1fg4BS0aKH1hXUnHU8ZaFyjJXQI1BRgVP//PYmgphaTsJXgtyjSiOaf4+0YL3qIrGaMzuP7Ya1vrSMrBwwFyE2Ya9iXU1eJx/VMN92OfDyu41TVDWcVOiE0CmYdTBBQSYedZhp/DQFpUNbkaqhjSkGAg8RmbxRiCnuZE84LU0O09i+gy6g7Yc6pEjcUTy6Xz+RwxxZlpQeH+0+SbTADpgqvdu1//g+MTnaHP3ZTiB74TApAO7yjyNo8NvAVnvlgfYnIIY97OeTaVLZogOUkFuGiKy9s6/If+93bta4IBMuD82EhVVsQc=

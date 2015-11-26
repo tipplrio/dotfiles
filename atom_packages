@@ -10,3 +10,6 @@ monokai
 set-syntax
 linter
 linter-eslint
+language-babel
+es6-javascript
+gulp-control

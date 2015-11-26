@@ -8,3 +8,5 @@ markdown-writer
 minimap
 monokai
 set-syntax
+linter
+linter-eslint

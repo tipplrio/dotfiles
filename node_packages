@@ -1,1 +1,7 @@
-grunt-cli
+eslint
+babel-cli
+mocha
+tape
+babel-tape-runner
+faucet
+gulp

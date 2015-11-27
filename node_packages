@@ -7,3 +7,5 @@ tape
 babel-tape-runner
 faucet
 gulp
+istanbul
+remap-istanbul

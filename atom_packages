@@ -8,6 +8,7 @@ markdown-writer
 minimap
 monokai
 set-syntax
+merge-conflicts
 linter
 linter-eslint
 language-babel

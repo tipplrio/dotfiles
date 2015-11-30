@@ -25,6 +25,7 @@
   "file-icons":
     onChanges: true
     coloured: false
+    forceShow: true
   "git-plus": {}
   "atom-alignment": {}
   minimap: {}

@@ -31,5 +31,10 @@
   minimap: {}
   linter:
     errorPanelHeight: 22
+    showErrorPanel: false
   "linter-eslint":
     globalNodePath: "/opt/homebrew"
+  "autocomplete-plus": {}
+  "toggle-quotes": {}
+  "node-debugger":
+    nodePath: "/opt/homebrew/bin/node"

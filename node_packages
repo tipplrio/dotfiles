@@ -1,11 +1,4 @@
 eslint
 eslint-plugin-react
 eslint-config-tipplr
-babel-cli
-mocha
-tape
-babel-tape-runner
-faucet
 gulp
-istanbul
-remap-istanbul

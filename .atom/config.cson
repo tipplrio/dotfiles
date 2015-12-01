@@ -34,6 +34,7 @@
     showErrorPanel: false
   "linter-eslint":
     globalNodePath: "/opt/homebrew"
+    useGlobalEslint: true
   "autocomplete-plus": {}
   "toggle-quotes": {}
   "node-debugger":

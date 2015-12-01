@@ -1,4 +1,9 @@
 ---
+- name: Ensure `~/.nvm` exists.
+  file:
+    path: ~/.nvm
+    state: directory
+
 - name: Find the outdated global node.js packages.
   shell: "npm -g outdated --parseable --depth=0 | cut -d: -f4"
   register: outdated_node_packages

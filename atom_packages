@@ -18,3 +18,4 @@ toggle-quotes
 node-debugger
 language-restructuredtext
 rst-preview-pandoc
+editorconfig

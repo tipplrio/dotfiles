@@ -11,4 +11,5 @@
     owner: "{{ user_name.stdout }}"
     mode: 0755
     state: directory
-  sudo: yes
+  become: yes
+  become_method: sudo

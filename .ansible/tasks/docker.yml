@@ -23,7 +23,8 @@
     path: /usr/local/bin
     mode: 0755
     state: directory
-  sudo: yes
+  become: yes
+  become_method: sudo
 
 - name: Ensure symbolic links to files required by Kitematic exist.
   file:
@@ -33,5 +34,5 @@
   with_items:
     - docker
     - docker-machine
-    - docker-machine-driver-virtualbox
-  sudo: yes
+  become: yes
+  become_method: sudo

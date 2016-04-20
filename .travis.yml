@@ -1,7 +1,7 @@
 ---
 language: objective-c
 
-sudo: true
+sudo: required
 
 before_install:
   # Setup Python environment
@@ -13,16 +13,16 @@ before_install:
 install:
   # Create Workspace directory
   - mkdir -p ~/Workspace/
-  - echo "cp -r ../dotfiles ~/Workspace/dotfiles" | sudo -s bash
+  - cp -r ../dotfiles ~/Workspace/dotfiles
 
 script:
   # Execute the bootstrapping script
   - cd ~/Workspace/dotfiles
-  - echo "./bootstrap.sh --force --no-update" | sudo -s bash
+  - sudo -s ./bootstrap.sh --force --no-update
   # Execute the update script
   - cd ~/.ansible
   - export PATH=/opt/homebrew/bin:$PATH
-  - echo "FORCE_UNSAFE_CONFIGURE=1 ansible-playbook -i hosts -e '{\"brew_upgrade_all\":false,\"atom_upgrade_all\":false,\"node_upgrade_all\":false}' site.yml" | sudo -s bash
+  - travis_wait 60 sudo -s FORCE_UNSAFE_CONFIGURE=1 ansible-playbook site.yml '-i hosts -e "brew_upgrade_all=false atom_upgrade_all=false node_upgrade_all=false"'
 
 notifications:
   slack:

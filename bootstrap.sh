@@ -69,7 +69,7 @@ EOF
 
   echo "Install the required Ansible roles."
   cd ${DOTFILES_HOME}/.ansible
-  ansible-galaxy install -f -r requirements.yml
+  ansible-galaxy install -f -r requirements.yml -p roles/
 
   cd ${DOTFILES_LOCAL}
   echo 'Now you can run the playbook by executing the script: `./update.sh`'

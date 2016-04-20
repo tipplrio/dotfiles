@@ -3,3 +3,4 @@
 compile-cache
 packages
 storage
+blob-store

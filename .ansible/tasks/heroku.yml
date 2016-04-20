@@ -18,6 +18,6 @@
 
 - name: Ensure configured Heroku Toolbelt plugins are installed.
   command: heroku plugins:install {{ item }}
-  with_items: heroku_plugins.stdout_lines
+  with_items: "{{ heroku_plugins.stdout_lines }}"
   when: "item not in existing_heroku_plugins.stdout_lines"
   changed_when: "item not in existing_heroku_plugins.stdout_lines"

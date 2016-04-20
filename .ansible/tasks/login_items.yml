@@ -14,6 +14,6 @@
 
 - name: Ensure configured login items are added.
   command: osascript -e 'tell application "System Events" to make new login item at end with properties {path:"{{ app_dir }}/{{ item }}.app", name:"{{ item }}", hidden:false}'
-  with_items: "{{login_items.stdout_lines}}"
+  with_items: "{{ login_items.stdout_lines }}"
   when: "item not in existing_login_items.stdout_lines"
   changed_when: "item not in existing_login_items.stdout_lines"

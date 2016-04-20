@@ -1,46 +1,47 @@
 "*":
-  welcome:
-    showOnStartup: false
-  editor:
-    invisibles: {}
-    showIndentGuide: true
-    tabType: "soft"
-    lineHeight: 1.2
-    fontSize: 13
-    fontFamily: "D2Coding"
-    softWrapAtPreferredLineLength: true
-    showInvisibles: true
-    scrollPastEnd: true
+  "aligner-css": {}
+  "aligner-scss": {}
+  "autocomplete-plus": {}
   core:
+    packagesWithKeymapsDisabled: [
+      "rst-preview-pandoc"
+    ]
     themes: [
       "atom-dark-ui"
       "monokai"
     ]
-    packagesWithKeymapsDisabled: [
-      "rst-preview-pandoc"
-    ]
-  "markdown-writer":
-    fileExtension: ".md"
-  "markdown-preview":
-    useGitHubStyle: true
-    liveUpdate: false
-  marked: {}
+  editor:
+    fontFamily: "D2Coding"
+    fontSize: 13
+    invisibles: {}
+    lineHeight: 1.2
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+    softWrapAtPreferredLineLength: true
+    tabType: "soft"
   "file-icons":
-    onChanges: true
     coloured: false
     forceShow: true
+    onChanges: true
   "git-plus": {}
-  "atom-alignment": {}
-  minimap: {}
   linter:
     errorPanelHeight: 22
     showErrorPanel: false
   "linter-eslint":
     globalNodePath: "/opt/homebrew"
-  "autocomplete-plus": {}
-  "toggle-quotes": {}
+  "markdown-preview":
+    liveUpdate: false
+    useGitHubStyle: true
+  "markdown-writer":
+    fileExtension: ".md"
+  minimap: {}
   "node-debugger":
     nodePath: "/opt/homebrew/bin/node"
   "rst-preview-pandoc":
-    pandocOpts: "-fmarkdown_github -thtml --webtex"
     liveUpdate: false
+    pandocOpts: "-fmarkdown_github -thtml --webtex"
+  "toggle-quotes": {}
+  "tree-view": {}
+  welcome:
+    showOnStartup: false

@@ -11,11 +11,11 @@ if [ "$(whoami)" != "root" ]; then
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 fi
 
-OPTIONS=''
-if [ $@ ]; then
-  OPTIONS=$@
-fi
+OPTIONS='-i hosts'
 
-ansible-playbook site.yml -i hosts ${OPTIONS}
+OPTIONS=( $OPTIONS )
+OPTIONS=("${OPTIONS[@]}" "$@")
+
+ansible-playbook site.yml "${OPTIONS[@]}"
 
 unset OPTIONS

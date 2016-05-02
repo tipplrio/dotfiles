@@ -26,7 +26,7 @@
     onChanges: true
   "git-plus": {}
   linter:
-    errorPanelHeight: 22
+    errorPanelHeight: 88
     showErrorPanel: false
   "linter-eslint":
     globalNodePath: "/opt/homebrew"

@@ -10,3 +10,4 @@ git-lfs
 git-flow
 node
 nvm
+ssh-copy-id

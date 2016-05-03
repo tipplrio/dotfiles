@@ -12,6 +12,9 @@ if [ "$(whoami)" != "root" ]; then
 fi
 
 OPTIONS='-i hosts'
+if [ -z "$@" ]; then
+  OPTIONS="${OPTIONS} --ask-become-pass"
+fi
 
 OPTIONS=( $OPTIONS )
 OPTIONS=("${OPTIONS[@]}" "$@")

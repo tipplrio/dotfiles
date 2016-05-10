@@ -23,6 +23,7 @@ script:
   - echo 'minimap' > atom_packages
   - echo 'bash-completion' > brew_packages
   - echo 'dterm' > cask_packages
+  - echo 'atom' >> cask_packages
   - echo 'heroku-pipelines' > heroku_plugins
   - echo 'DTerm' > login_items
   - echo 'npm-check-updates' > node_packages

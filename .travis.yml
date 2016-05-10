@@ -21,7 +21,7 @@ script:
   - sudo -s ./bootstrap.sh '--force --no-update'
   # Generate package lists for testing
   - echo 'minimap' > atom_packages
-  - echo 'bash-completion' > brew_packages
+  - echo 'node' > brew_packages
   - echo 'dterm' > cask_packages
   - echo 'atom' >> cask_packages
   - echo 'heroku-pipelines' > heroku_plugins

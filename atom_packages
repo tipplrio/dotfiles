@@ -24,3 +24,4 @@ set-syntax
 sort-lines
 toggle-quotes
 motepair
+language-cypher

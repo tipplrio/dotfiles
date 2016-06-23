@@ -1,4 +1,4 @@
-export PATH="/opt/homebrew/bin:/opt/homebrew-cask/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export MANPATH="/opt/homebrew/share/man:$MANPATH"
 export EDITOR="atom"
 export NVM_DIR=~/.nvm

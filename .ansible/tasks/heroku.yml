@@ -1,7 +1,7 @@
 ---
 - name: Ensure Heroku Toolbelt is installed.
   homebrew:
-    name: heroku-toolbelt
+    name: heroku
     state: present
 
 - name: Find the installed Heroku Toolbelt plugins.

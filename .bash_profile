@@ -19,3 +19,4 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 source `brew --prefix nvm`/nvm.sh
+eval "$(gulp --completion=bash)"

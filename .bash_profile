@@ -2,6 +2,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 export MANPATH="/opt/homebrew/share/man:$MANPATH"
 export EDITOR="atom"
 export NVM_DIR=~/.nvm
+export ANDROID_HOME=`brew --prefix`/opt/android-sdk
 
 if [ -f ~/.bashrc ]; then
   source ~/.bashrc

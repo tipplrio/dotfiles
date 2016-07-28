@@ -25,6 +25,8 @@
     forceShow: true
     onChanges: true
   "git-plus": {}
+  "highlight-selected":
+    lightTheme: true
   linter:
     errorPanelHeight: 88
     showErrorPanel: false

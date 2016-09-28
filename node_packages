@@ -3,3 +3,4 @@ datapackage
 npm-check-updates
 react-native-cli
 rnpm
+ios-deploy
